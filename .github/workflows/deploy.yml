@@ -25,14 +25,18 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Copy Static Files
+      - name: Prepare Static Files
         run: |
-          cp -r out/_next out/CAD-Exchanger-test-goldobin/_next
-          cp out/404.html out/CAD-Exchanger-test-goldobin/404.html
-          cp out/index.html out/CAD-Exchanger-test-goldobin/index.html
+          mkdir -p out/CAD-Exchanger-test-goldobin
+          mv out/_next out/CAD-Exchanger-test-goldobin/
+          mv out/*.html out/CAD-Exchanger-test-goldobin/
+          mv out/*.js out/CAD-Exchanger-test-goldobin/ || true
+          mv out/*.json out/CAD-Exchanger-test-goldobin/ || true
 
       - name: Add .nojekyll file
-        run: touch out/.nojekyll
+        run: |
+          touch out/.nojekyll
+          touch out/CAD-Exchanger-test-goldobin/.nojekyll
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
