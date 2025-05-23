@@ -25,20 +25,18 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: List directories
-        run: |
-          pwd
-          ls -la
-          ls -la .next/ || true
-          ls -la out/ || true
-
       - name: Add .nojekyll file
-        run: touch .nojekyll
+        run: |
+          touch .nojekyll
+          touch .next/.nojekyll
+
+      - name: Fix permissions
+        run: chmod -R u+w .next
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .next
+          folder: .next/out
           branch: gh-pages
           clean: true
           token: ${{ secrets.GITHUB_TOKEN }}
