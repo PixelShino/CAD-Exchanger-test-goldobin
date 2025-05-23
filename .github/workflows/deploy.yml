@@ -25,16 +25,20 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: List output directory
-        run: ls -la out/
+      - name: List directories
+        run: |
+          pwd
+          ls -la
+          ls -la .next/ || true
+          ls -la out/ || true
 
       - name: Add .nojekyll file
-        run: touch out/.nojekyll
+        run: touch .nojekyll
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: out
+          folder: .next
           branch: gh-pages
           clean: true
           token: ${{ secrets.GITHUB_TOKEN }}
