@@ -25,6 +25,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Copy Static Files
+        run: |
+          cp -r out/_next out/CAD-Exchanger-test-goldobin/_next
+          cp out/404.html out/CAD-Exchanger-test-goldobin/404.html
+          cp out/index.html out/CAD-Exchanger-test-goldobin/index.html
+
       - name: Add .nojekyll file
         run: touch out/.nojekyll
 
