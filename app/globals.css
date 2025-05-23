@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for UI components */
+
+/* Dialog styles */
+.dialog-content {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f1f1;
+  padding: 24px;
+}
+
+.dialog-content .dialog-header {
+  margin-bottom: 20px;
+}
+
+.dialog-content .dialog-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Button styles */
+.custom-button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  background: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  color: #333;
+}
+
+.custom-button:hover {
+  background: #f1f1f1;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.custom-button:active {
+  transform: translateY(0);
+}
+
+/* Input styles */
+.custom-input {
+  border: 2px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  color: #333;
+}
+
+.custom-input:hover {
+  border-color: #d1d1d1;
+}
+
+.custom-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+/* Select styles */
+.custom-select {
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #333;
+}
+
+.custom-select:hover {
+  border-color: #d1d1d1;
+  background: #f8f8f8;
+}
+
+/* Light theme colors */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.75rem;
+}

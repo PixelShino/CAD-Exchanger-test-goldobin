@@ -1,0 +1,37 @@
+/* Custom styles for UI components */
+
+/* Dialog customization */
+.dialog-content {
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Button customization */
+.custom-button {
+  transition: transform 0.2s;
+}
+
+.custom-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Input customization */
+.custom-input {
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.custom-input:focus {
+  border-color: #2563eb;
+}
+
+/* Select customization */
+.custom-select {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+}
+
+.custom-select:hover {
+  background-color: #f9fafb;
+}
