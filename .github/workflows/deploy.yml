@@ -29,7 +29,19 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
+          ls -la
+          ls -la .next || true
+
+      - name: Prepare output
+        run: |
+          mkdir -p out
+          cp -r .next/static out/_next/static || true
+          cp -r .next/server/pages/* out/ || true
+          cp -r .next/server/app/* out/ || true
+          touch out/.nojekyll
+          ls -la out/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
