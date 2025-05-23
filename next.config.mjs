@@ -2,11 +2,9 @@
 const nextConfig = {
   output: 'export',
   basePath: '/CAD-Exchanger-test-goldobin',
-  images: {
-    unoptimized: true,
-  },
-  assetPrefix: '/CAD-Exchanger-test-goldobin/',
-  trailingSlash: true,
+  images: { unoptimized: true },
+  assetPrefix: 'https://pixelshino.github.io/CAD-Exchanger-test-goldobin',
+  distDir: 'out',
 };
 
 export default nextConfig;
