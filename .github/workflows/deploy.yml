@@ -9,6 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
@@ -23,24 +29,16 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Build
-        run: |
-          npm run build
-          cp -r .next/static out/_next/static
-          cp .next/server/app/page.html out/index.html
+        run: npm run build
 
-      - name: List build directory
-        run: |
-          ls -la
-          ls -la .next || true
-          ls -la out || true
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-      - name: Add .nojekyll file
-        run: touch out/.nojekyll
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: out
-          branch: gh-pages
-          clean: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          path: 'out'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
