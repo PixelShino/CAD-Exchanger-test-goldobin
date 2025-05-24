@@ -24,7 +24,7 @@ jobs:
       - name: Build and export Next.js 🚀
         env:
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
-        run: next build
+        run: npm run build
 
       - name: Add .nojekyll file 📄
         run: touch out/.nojekyll
