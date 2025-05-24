@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "predeploy": "next build",
-    "deploy": "NEXT_PUBLIC_BASE_PATH=/CAD-Exchanger-test-goldobin build && next export && touch out/.nojekyll"
+    "deploy": "cross-env NEXT_PUBLIC_BASE_PATH=/CAD-Exchanger-test-goldobin next build && node -e \"require('fs').writeFileSync('out/.nojekyll', '')\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
