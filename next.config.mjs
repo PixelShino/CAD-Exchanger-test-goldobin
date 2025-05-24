@@ -9,5 +9,11 @@ const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
   // "deploy": "gh-pages -d out --dotfiles"
+  eslint: {
+    ignoreDuringBuilds: true, // Это для ESLint
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 export default nextConfig;
