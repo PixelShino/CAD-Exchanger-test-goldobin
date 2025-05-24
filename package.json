@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "predeploy": "next build",
-    "deploy": "gh-pages -d out --dotfiles"
+    "deploy": "NEXT_PUBLIC_BASE_PATH=/CAD-Exchanger-test-goldobin build && next export && touch out/.nojekyll"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
