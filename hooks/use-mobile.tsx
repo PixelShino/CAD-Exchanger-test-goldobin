@@ -6,14 +6,30 @@ export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
 
   React.useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
-    const onChange = () => {
+    // Set initial value
+    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+    
+    // Create handler for window resize
+    const handleResize = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
     }
-    mql.addEventListener("change", onChange)
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-    return () => mql.removeEventListener("change", onChange)
+    
+    // Add event listener with throttling for better performance
+    let resizeTimer: NodeJS.Timeout
+    const throttledResize = () => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(handleResize, 100)
+    }
+    
+    window.addEventListener("resize", throttledResize)
+    
+    // Clean up
+    return () => {
+      window.removeEventListener("resize", throttledResize)
+      clearTimeout(resizeTimer)
+    }
   }, [])
 
-  return !!isMobile
+  // Return false during SSR, then actual value after mount
+  return isMobile === undefined ? false : isMobile
 }

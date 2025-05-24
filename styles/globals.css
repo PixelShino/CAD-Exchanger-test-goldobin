@@ -92,3 +92,23 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  html, body {
+    font-size: 14px;
+  }
+  
+  /* Improved touch targets for mobile */
+  button, 
+  [role="button"],
+  select,
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Import component specific styles */
+@import './components.css';
