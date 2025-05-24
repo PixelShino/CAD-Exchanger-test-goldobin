@@ -19,7 +19,7 @@ jobs:
           node-version: 20 # Или другая версия, которую вы используете
 
       - name: Install dependencies 📦
-        run: npm ci # Используйте 'npm install' если нет lock-файла, но 'npm ci' предпочтительнее для CI
+        run: npm ci   --legacy-peer-deps # Используйте 'npm install' если нет lock-файла, но 'npm ci' предпочтительнее для CI
 
       - name: Build and export Next.js 🚀
         # Важно: В GitHub Actions (Linux-окружение) синтаксис VAR=value command работает
